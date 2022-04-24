@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Results</title>
+  <!-- CSS only -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+  <style>
+    body{
+      background-color: lightcoral;
+      padding-top: 35px;  
+      margin: 30px;
+    }
+    .card2{
+      text-align: center;
+    }
+    label{
+    
+      width: 100px;
+      color: black;
+      font-weight: bold;
+    }
+    input,select,button{
+      width: 120px;
+      position: center;
+      margin-left: 5px;
+    }
+    .btn1{
+      padding: 1px;
+      color: black;
+      font-weight: bolder;
+    }
+    .grades{
+     
+    }
+    h1{
+      font-weight: bold;
+      margin-right: 10px !important;
+    }
+    #lica,#mpmc,#emi,#dc,#dsd,#lica-lab,#dc-lab,#mpmc-lab,#project{
+    
+    
+      margin-left: 5px;
+    }
+    #insert{
+      padding: 10px;
+      color: darkorange;
+      font-weight: bolder;
+    }
+  </style>
+</head>
+<body>
+
+<div class="card2 display1" id="box2" >
+  <h1>3&nbsp-&nbsp1&nbspRESULTS&nbspUPLOAD&nbspSITE </h1>
+  <br>
+  <br>
+  <label>Name</label>  <input type="text" id="name"></input> <br><br>
+  <label>Roll No</label> <input type="text" id="rollno"></input><br> <br>
+  <label>Year</label>
+   <select id="year">
+    <!-- <option value="1">1</option>
+     <option value="2">2</option> -->
+     <option value="3">3</option> 
+   <!--  <option value="4">4</option> -->
+   </select> <br> <br>
+  
+  <label>Branch</label>
+  <select id="branch">
+      <option value="ECE">ECE</option>
+     <!-- <option value="CSE">CSE</option>
+      <option value="IT">IT</option>
+      <option value="CIVIL">CIVIL</option>
+      <option value="MECH">MECH</option>
+      <option value="EEE">EEE</option>
+      <option value="DIPLOMA">DIPLOMA</option> -->
+  </select> <br> <br>
+  <label>Pass or Fail</label>
+  <select id="result">
+      <option value="F">Fail</option>
+      <option value="P" id="omk">Pass</option>
+  </select>
+  <br> <br>
+  <div class="displayGrade" id="disGrade">
+    <label>Select&nbspGrades</label>
+<br> <br>
+    <div class="grades">
+     <label>LICA</label>
+
+  <select id="lica">
+  <option value="F">F</option>
+  <option value="O">O</option>
+  <option value="S">S</option>
+  <option value="A">A</option>
+  <option value="B">B</option>
+  <option value="C">C</option>
+  <option value="D">D</option>
+</select> 
+      <br> <br>
+         <label>MPMC</label>
+
+  <select id="mpmc">
+  <option value="F">F</option>
+  <option value="O">O</option>
+  <option value="S">S</option>
+  <option value="A">A</option>
+  <option value="B">B</option>
+  <option value="C">C</option>
+  <option value="D">D</option>
+</select> 
+      <br> <br>
+         <label>EMI</label>
+
+  <select id="emi">
+  <option value="F">F</option>
+  <option value="O">O</option>
+  <option value="S">S</option>
+  <option value="A">A</option>
+  <option value="B">B</option>
+  <option value="C">C</option>
+  <option value="D">D</option>
+</select> 
+      <br> <br>
+         <label>DC</label>
+
+  <select id="dc">
+  <option value="F">F</option>
+  <option value="O">O</option>
+  <option value="S">S</option>
+  <option value="A">A</option>
+  <option value="B">B</option>
+  <option value="C">C</option>
+  <option value="D">D</option>
+</select> 
+      <br> <br>
+         <label>DSD</label>
+
+  <select  id="dsd">
+  <option value="F">F</option>
+  <option value="O">O</option>
+  <option value="S">S</option>
+  <option value="A">A</option>
+  <option value="B">B</option>
+  <option value="C">C</option>
+  <option value="D">D</option>
+</select> 
+      <br> <br>
+         <label >LICA LAB</label>
+
+  <select id="lica-lab">
+  <option value="F">F</option>
+  <option value="O">O</option>
+  <option value="S">S</option>
+  <option value="A">A</option>
+  <option value="B">B</option>
+  <option value="C">C</option>
+  <option value="D">D</option>
+</select> 
+      <br> <br>
+         <label>MPMC LAB</label>
+
+  <select id="mpmc-lab">
+  <option value="F">F</option>
+  <option value="O">O</option>
+  <option value="S">S</option>
+  <option value="A">A</option>
+  <option value="B">B</option>
+  <option value="C">C</option>
+  <option value="D">D</option>
+</select> 
+      <br> <br>
+         <label >DC LAB</label>
+
+  <select id="dc-lab">
+  <option value="F">F</option>
+  <option value="O">O</option>
+  <option value="S">S</option>
+  <option value="A">A</option>
+  <option value="B">B</option>
+  <option value="C">C</option>
+  <option value="D">D</option>
+</select> 
+      <br> <br>
+         <label>PROJECT</label>
+  <select id="project">
+  <option value="F">F</option>
+  <option value="O">O</option>
+  <option value="S">S</option>
+  <option value="A">A</option>
+  <option value="B">B</option>
+  <option value="C">C</option>
+  <option value="D">D</option>
+</select> 
+      <br> <br>
+  </div>
+  <br> <br>
+ 
+    <button class="btn1 rounded-pill" type="submit" id="post" >SUBMIT</button>
+  <button class="btn1 rounded-pill" type="submit" id="check">CHECK</button>
+  </div> 
+  
+</div>
+    <script type="module">
+      
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/9.6.11/firebase-app.js";
+ 
+    const firebaseConfig = {
+      apiKey: "AIzaSyCaBpoG6qo_nA5y5UyI_LvOID2UYDtR3YA",
+      authDomain: "flamescheckerdb.firebaseapp.com",
+      databaseURL: "https://flamescheckerdb-default-rtdb.firebaseio.com",
+      projectId: "flamescheckerdb",
+      storageBucket: "flamescheckerdb.appspot.com",
+      messagingSenderId: "747959118192",
+      appId: "1:747959118192:web:1358d905d9e1d7a0c887b5"
+    };
+
+  const app = initializeApp(firebaseConfig);
+    
+  import {getDatabase, ref, get, set, child, update, remove} from "https://www.gstatic.com/firebasejs/9.6.11/firebase-database.js";
+
+  const db = getDatabase();
+
+  // Initialize Firebase
+
+
+        //------Ready Data -----//
+
+       var name,roll,branch,year,pf,lica,mpmc,emi,dc,dsd,licaLab,mpmcLab,dcLab,project,type;
+       function ready(){
+           name = document.getElementById('name').value;
+           roll= document.getElementById('rollno').value;
+           branch = document.getElementById('branch').value;
+           year = document.getElementById('year').value;
+           lica = document.getElementById('lica').value;
+           dc = document.getElementById('dc').value;
+          mpmc = document.getElementById('mpmc').value;
+          emi = document.getElementById('emi').value;
+          dsd = document.getElementById('dsd').value;
+          licaLab = document.getElementById('lica-lab').value;
+          dcLab = document.getElementById('dc-lab').value;
+          project = document.getElementById('project').value;
+          mpmcLab = document.getElementById('mpmc-lab').value;
+          pf = document.getElementById('result').value;
+       }
+
+       //------Insert Value ------//
+
+       document.getElementById('post').onclick = function(){
+           ready();
+           set(ref(db, "students/"+roll),{
+               Name: name,
+               RollNo: roll,
+               Branch: branch,
+               Year: year,
+               Status: pf,
+                LICA: lica,
+                MPMC : mpmc,
+                EMI: emi,
+                DC: dc,
+                DSD: dsd,
+                licaLAB: licaLab,
+                MpmcLAB: mpmcLab,
+                DcLAB:dcLab,
+                PROJECT:project
+             
+           })
+           .then(()=>{
+               alert("Data successfully updated");
+           })
+           .catch((error)=>{
+               alert(`Error occurred ${error}`);
+           })
+           }
+
+        //-----Selection Processs-----//
+
+        let btn = document.getElementById('check');
+         btn.addEventListener("click",check);
+        function check(){
+          
+             name = document.getElementById('name').value;
+          
+          ready();
+           let box1 = document.getElementById("box2");
+          box1.classList.remove('display1');
+          let box2 = document.getElementById('box1');
+          box2.classList.add('display2');
+           //console.log(data);
+
+        //------Ready Data -----//
+      const dbref = ref(db);
+        get(child(dbref,"students/"+roll)).then((snapshot)=>{
+        if(snapshot.exists()){
+         console.log(snapshot.val().Name)
+        
+          name.innerHTML = snapshot.val().Name;
+      
+        }
+          else{
+            console.log("3")
+          }
+     });
+}
+
+      </script>
+</body>
+</html>
