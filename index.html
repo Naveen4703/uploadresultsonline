@@ -46,6 +46,7 @@
     }
     .upload{
       float: right;
+      margin-right: 10px;
     }
     #insert{
       padding: 10px;
@@ -336,7 +337,16 @@ const worker = prompt("Enter Your Roll NO : ");
            })
 function clear(){
       document.getElementById('name').value = '';
-  document.getElementById('rollno').value = '';document.getElementById('lica').value = '';document.getElementById('mpmc').value = '';document.getElementById('emi').value = '';document.getElementById('dc').value = '';document.getElementById('dsd').value = '';document.getElementById('licalab').value = '';document.getElementById('mpmclab').value = '';document.getElementById('dclab').value = '';document.getElementById('project').value = '';
+  document.getElementById('rollno').value = '';
+  document.getElementById('lica').value = '';
+  document.getElementById('mpmc').value = '';
+  document.getElementById('emi').value = '';
+  document.getElementById('dc').value = '';
+  document.getElementById('dsd').value = '';
+  document.getElementById('licalab').value = '';
+  document.getElementById('mpmclab').value = '';
+  document.getElementById('dclab').value = '';
+  document.getElementById('project').value = '';
          /* roll.value = ""
          branch = ""
         year = ""
@@ -352,40 +362,7 @@ function clear(){
             project.value  = ""
 */
 }
-
-                                  
-           }
-
-        //-----Selection Processs-----//
-
-    /*    let btn = document.getElementById('check');
-         btn.addEventListener("click",check);
-        function check(){
-          
-             name = document.getElementById('name').value;
-          
-          ready();
-           let box1 = document.getElementById("box2");
-          box1.classList.remove('display1');
-          let box2 = document.getElementById('box1');
-          box2.classList.add('display2');
-           //console.log(data);
-
-        //------Ready Data -----//
-      const dbref = ref(db);
-        get(child(dbref,"students/"+roll)).then((snapshot)=>{
-        if(snapshot.exists()){
-         console.log(snapshot.val().Name)
-        
-          name.innerHTML = snapshot.val().Name;
-      
-        }
-          else{
-            console.log("3")
-          }
-     });
 }
-*/
-      </script>
+</script>
 </body>
 </html>
