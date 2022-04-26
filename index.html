@@ -11,13 +11,13 @@
     body{
       background-color: lightcoral;
       padding-top: 35px;  
-      margin: 30px;
+      margin: 10px;
     }
     .card2{
       text-align: center;
+      margin-top: 15px;
     }
     label{
-    
       width: 100px;
       color: black;
       font-weight: bold;
@@ -39,10 +39,13 @@
       font-weight: bold;
       margin-right: 10px !important;
     }
-    #lica,#mpmc,#emi,#dc,#dsd,#lica-lab,#dc-lab,#mpmc-lab,#project{
+    #lica,#mpmc,#emi,#dc,#dsd,#licalab,#dclab,#mpmclab,#project{
     
     
       margin-left: 5px;
+    }
+    .upload{
+      float: right;
     }
     #insert{
       padding: 10px;
@@ -52,7 +55,13 @@
   </style>
 </head>
 <body>
-
+<div class="upload"> 
+  <h1 id="workerName"></h1>
+<bold>UPLOADS - <span id="count"></span></bold>
+  <br>
+</div>
+  <br> <br> <br>
+  
 <div class="card2 display1" id="box2" >
   <h1>3&nbsp-&nbsp1&nbspRESULTS&nbspUPLOAD&nbspSITE </h1>
   <br>
@@ -149,7 +158,7 @@
       <br> <br>
          <label >LICA LAB</label>
 
-  <select id="lica-lab">
+  <select id="licalab">
   <option value="F">F</option>
   <option value="O">O</option>
   <option value="S">S</option>
@@ -161,7 +170,7 @@
       <br> <br>
          <label>MPMC LAB</label>
 
-  <select id="mpmc-lab">
+  <select id="mpmclab">
   <option value="F">F</option>
   <option value="O">O</option>
   <option value="S">S</option>
@@ -173,7 +182,7 @@
       <br> <br>
          <label >DC LAB</label>
 
-  <select id="dc-lab">
+  <select id="dclab">
   <option value="F">F</option>
   <option value="O">O</option>
   <option value="S">S</option>
@@ -197,12 +206,15 @@
   </div>
   <br> <br>
  
-    <button class="btn1 rounded-pill" type="submit" id="post" >SUBMIT</button>
-  <button class="btn1 rounded-pill" type="submit" id="check">CHECK</button>
+    <button class="btn1 rounded-pill" type="submit" id="post" >UPLOAD</button>
+ <!--  <button class="btn1 rounded-pill" type="submit" id="check">CHECK</button> -->
   </div> 
   
 </div>
     <script type="module">
+
+      
+
       
     import { initializeApp } from "https://www.gstatic.com/firebasejs/9.6.11/firebase-app.js";
  
@@ -219,29 +231,77 @@
   const app = initializeApp(firebaseConfig);
     
   import {getDatabase, ref, get, set, child, update, remove} from "https://www.gstatic.com/firebasejs/9.6.11/firebase-database.js";
+    
 
-  const db = getDatabase();
-
+const db = getDatabase();
+const dbref = ref(db);
   // Initialize Firebase
 
-
+const worker = prompt("Enter Your Roll NO : ");
+    function works (){
+        get(child(dbref,"Counts/"+worker)).then((snapshot)=>{
+        if(snapshot.exists()){
+          document.getElementById('workerName').innerHTML = worker;
+          document.getElementById('count').innerHTML= snapshot.val().count;
+          
+      }
+        else{
+         alert("Please enter your name correctly") 
+        }
+        })
+      }
+      works();
         //------Ready Data -----//
+       var count = 1;
 
-       var name,roll,branch,year,pf,lica,mpmc,emi,dc,dsd,licaLab,mpmcLab,dcLab,project,type;
+      //-----COUNT VALUE ------//
+          function counter(){
+      
+        get(child(dbref,"Counts/"+worker)).then((snapshot)=>{
+        if(snapshot.exists()){
+         console.log(snapshot.val().count)
+          let values = snapshot.val().count
+               values++
+
+                 set(ref(db, "Counts/"+worker),{
+                count : values
+           })
+           .then(()=>{
+              document.getElementById('count').innerHTML= values;
+           })
+           .catch((error)=>{
+             
+           })
+      
+        }
+          else{
+            alert("Please enter your name correctly")
+          }
+     });
+          
+        }
+          
+        
+            
+          
+     
+      
+      ///////////////////////////
+       var names,rolls,branch,year,pf,lica1,mpmc1,emi1,dc1,dsd1,licaLab1,mpmcLab1,dcLab1,project1;
        function ready(){
-           name = document.getElementById('name').value;
-           roll= document.getElementById('rollno').value;
+           names = document.getElementById('name').value;
+           rolls= document.getElementById('rollno').value;
            branch = document.getElementById('branch').value;
            year = document.getElementById('year').value;
-           lica = document.getElementById('lica').value;
-           dc = document.getElementById('dc').value;
-          mpmc = document.getElementById('mpmc').value;
-          emi = document.getElementById('emi').value;
-          dsd = document.getElementById('dsd').value;
-          licaLab = document.getElementById('lica-lab').value;
-          dcLab = document.getElementById('dc-lab').value;
-          project = document.getElementById('project').value;
-          mpmcLab = document.getElementById('mpmc-lab').value;
+           lica1 = document.getElementById('lica').value;
+           dc1= document.getElementById('dc').value;
+          mpmc1 = document.getElementById('mpmc').value;
+          emi1 = document.getElementById('emi').value;
+          dsd1 = document.getElementById('dsd').value;
+          licaLab1= document.getElementById('licalab').value;
+          dcLab1= document.getElementById('dclab').value;
+          project1 = document.getElementById('project').value;
+          mpmcLab1 = document.getElementById('mpmclab').value;
           pf = document.getElementById('result').value;
        }
 
@@ -249,34 +309,56 @@
 
        document.getElementById('post').onclick = function(){
            ready();
-           set(ref(db, "students/"+roll),{
-               Name: name,
-               RollNo: roll,
+           set(ref(db, "students/"+rolls),{
+               Name: names,
+               RollNo: rolls,
                Branch: branch,
                Year: year,
                Status: pf,
-                LICA: lica,
-                MPMC : mpmc,
-                EMI: emi,
-                DC: dc,
-                DSD: dsd,
-                licaLAB: licaLab,
-                MpmcLAB: mpmcLab,
-                DcLAB:dcLab,
-                PROJECT:project
-             
+                LICA: lica1,
+                MPMC : mpmc1,
+                EMI: emi1,
+                DC: dc1,
+                DSD: dsd1,
+                licaLAB: licaLab1,
+                MpmcLAB: mpmcLab1,
+                DcLAB:dcLab1,
+                PROJECT:project1
            })
            .then(()=>{
                alert("Data successfully updated");
+                clear();
+               counter() ;
+           
            })
            .catch((error)=>{
                alert(`Error occurred ${error}`);
            })
+function clear(){
+      document.getElementById('name').value = '';
+  document.getElementById('rollno').value = '';document.getElementById('lica').value = '';document.getElementById('mpmc').value = '';document.getElementById('emi').value = '';document.getElementById('dc').value = '';document.getElementById('dsd').value = '';document.getElementById('licalab').value = '';document.getElementById('mpmclab').value = '';document.getElementById('dclab').value = '';document.getElementById('project').value = '';
+         /* roll.value = ""
+         branch = ""
+        year = ""
+         pf = ""
+         lica.value = ""
+         mpmc.value = ""
+         emi.value = ""
+          dc.value = ""
+           dsd.value= ""
+          licalab.value = ""
+           mpmclab.value = ""
+           dclab.value = ""
+            project.value  = ""
+*/
+}
+
+                                  
            }
 
         //-----Selection Processs-----//
 
-        let btn = document.getElementById('check');
+    /*    let btn = document.getElementById('check');
          btn.addEventListener("click",check);
         function check(){
           
@@ -303,7 +385,7 @@
           }
      });
 }
-
+*/
       </script>
 </body>
 </html>
